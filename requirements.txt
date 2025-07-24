@@ -1,0 +1,8 @@
+fastapi
+uvicorn
+requests
+numpy
+scikit-learn==1.3.2
+tensorflow-cpu
+joblib
+python-multipart
