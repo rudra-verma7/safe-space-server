@@ -1,10 +1,21 @@
-# main.py (UPGRADED)
+# main.py (UPGRADED WITH CORS)
 from fastapi import FastAPI, File, UploadFile, Form
+from fastapi.middleware.cors import CORSMiddleware # Import the CORS middleware
 import analysis_logic
 import json
 import os
 
 app = FastAPI()
+
+# --- Add the CORS Middleware ---
+# This allows your web app to make requests to this server.
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],  # Allows all origins
+    allow_credentials=True,
+    allow_methods=["*"],  # Allows all methods (GET, POST, etc.)
+    allow_headers=["*"],  # Allows all headers
+)
 
 @app.post("/analyze")
 async def analyze_stress(
@@ -60,3 +71,4 @@ async def analyze_stress(
 @app.get("/")
 def read_root():
     return {"status": "Safe Space Full multimodal server is running."}
+

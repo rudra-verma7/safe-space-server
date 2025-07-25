@@ -9,3 +9,5 @@ python-multipart
 # Add these two new lines
 opencv-python-headless
 librosa
+fastapi-cors
+
